@@ -1,0 +1,32 @@
+
+
+
+import java.util.Scanner;
+
+
+public class Lab10B {
+        public static void main(String[] args) {
+        int n,row,col;
+        Scanner input=new Scanner(System.in);
+        System.out.println("Enter the number:");
+        n=input.nextInt();
+        for(row=1;row<=n;row++){
+            for(col=1;col<=n-row;col++){
+                System.out.print(" ");
+            }
+            for(col=row;col>=1;col--){
+                System.out.print(""+col);
+            
+            }
+            for(col=2;col<=row;col++){
+                System.out.print(""+col);
+            }
+           
+        System.out.print("\n");
+        }
+               
+        
+    }
+    
+    
+}

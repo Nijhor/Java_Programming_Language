@@ -1,0 +1,27 @@
+
+
+
+import java.util.Scanner;
+
+
+public class Lab10a {
+      public static void main(String[] args) {
+        int i,col,row;
+        Scanner input=new Scanner(System.in);
+        System.out.println("Enter the number:");
+        i=input.nextInt();
+        for(row=1;row<=i;row++){
+            for(col=1;col<=i-row;col++){
+                System.out.print(" ");
+            }
+                for(col=1;col<=2*row-1;col++){
+                    System.out.print(row+"");
+                }
+                
+            
+            System.out.print("\n");
+           
+        }
+    }
+    
+}

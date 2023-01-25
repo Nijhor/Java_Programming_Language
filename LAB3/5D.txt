@@ -1,0 +1,22 @@
+
+
+import java.util.Scanner;
+
+
+public class Lab5D {
+          public static void main(String[] args) {
+        int n,row,col;
+        Scanner input=new Scanner(System.in);
+        System.out.println("Enter the number:");
+        n=input.nextInt();
+        for(row=n;row>=1;row--){
+            
+            for(col=row;col>=1;col--){
+                System.out.print(""+col);
+            }
+            System.out.print("\n");
+           
+        }
+    }
+    
+}

@@ -1,0 +1,32 @@
+
+
+import java.util.Random;
+import java.util.Scanner;
+
+
+public class Lab6 {
+    public static void main(String[] args) {
+        int n,rand,count=0;
+        Random random=new Random();
+        rand=random.nextInt(100);
+        Scanner input=new Scanner(System.in);
+        System.out.println("Enter your Number:");
+        n=input.nextInt();
+       while(rand!=n){
+    
+        if(rand>n){
+            System.out.println("Too low,try again");
+        }
+        if(rand<n){
+            System.out.println("Too high,try again");
+        }
+           System.out.println("Enter the number again");
+           n=input.nextInt();
+       
+    }
+       if(rand==n){
+           System.out.println("You win");
+       }
+    }
+    
+}

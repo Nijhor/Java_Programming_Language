@@ -1,0 +1,19 @@
+
+
+
+
+public class Lab2 {
+    public static void main(String[] args) {
+        int n = 20, t1 = 1, t2 = 1,sum;
+        
+        System.out.print("The First " + n + " Fibonacci numbers are: ");
+        for (int i = 1; i <= n; i++)
+        {
+            System.out.print(t1 + " ");
+            sum = t1 + t2;
+            t1 = t2;
+            t2 = sum;
+        }
+    }
+    
+}

@@ -1,0 +1,25 @@
+
+
+import java.util.Scanner;
+
+
+public class Lab20 {
+    public static void main(String[] args) {
+        int x;
+        double y,r1,avg;
+        long  p;
+        float q;
+        Scanner input=new Scanner(System.in);
+        System.out.println("Enter X,Y,P,Q");
+        x=input.nextInt();
+        y=input.nextDouble();
+        p=input.nextLong();
+        q=input.nextFloat();
+        r1=(double)(x+y);
+        System.out.println("Sum of X & Y is" +r1);
+        avg=(double)((x+y+p+q)/4);
+        System.out.println("The avarage:"+avg);
+        
+    }
+    
+}

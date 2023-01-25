@@ -1,0 +1,32 @@
+
+
+
+import java.util.Scanner;
+
+
+public class Lab8{
+
+
+    public static void main(String[] args) {
+         Scanner in = new Scanner(System.in);
+         
+     System.out.print("Input a number: ");
+     
+     int n = in.nextInt();
+     int s = 0, a;
+     
+	 int temp = n;    
+     while(n>0)
+	   {    
+        a = n % 10;   
+        s = (s*10)+a;    
+        n = n/10;    
+       }    
+      if(temp==s)    
+        System.out.println("It is a Palindrome number.");    
+      else    
+        System.out.println("Not a palindrome");    
+       
+    }
+    
+}
