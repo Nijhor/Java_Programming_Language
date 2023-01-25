@@ -1,0 +1,28 @@
+
+
+
+
+import java.util.Scanner;
+
+public class Lab6 {
+    public static void main(String[] args) {
+       int c, d, e, f;
+           Scanner in = new Scanner(System.in);
+        System.out.println("Input First Number a:");
+        int a = in.nextInt();
+        System.out.println("Input Second Number b:");
+        int b = in.nextInt();
+       
+         c = a+b;
+         d = a - b;
+         e = a * b;
+         f = a / b;
+         System.out.println(c);
+         System.out.println(d);
+         System.out.println(e);
+         System.out.println(f);
+       
+        
+    }
+    
+}

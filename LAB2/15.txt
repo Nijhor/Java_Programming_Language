@@ -1,0 +1,21 @@
+
+import java.util.Scanner;
+
+public class Lab15 {
+
+    public static void main(String[] args) {
+        int a,b,c,d ;
+        Scanner in = new Scanner(System.in);
+        System.out.print("Enter number, a: ");
+        a = in.nextInt();
+        
+        c = (a/10) ;
+        d = (a%10);
+        b = (c+d);
+        
+        System.out.println("Sum of number "+a+" is : "+b);
+         
+       
+    }
+    
+}

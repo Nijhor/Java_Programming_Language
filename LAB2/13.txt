@@ -1,0 +1,32 @@
+
+
+
+import java.util.Scanner;
+
+
+public class Lab13 {
+
+
+    public static void main(String[] args) {
+        int a,b,temp ;
+        Scanner in = new Scanner(System.in);
+        System.out.print("Enter a: ");
+        a = in.nextInt();
+        
+        System.out.print("Enter b: ");
+        b = in.nextInt();
+        
+         temp = a;
+         a = b;
+         b = temp ;
+         
+          System.out.print("after swapping :" +a);
+          System.out.print("after swapping :" b);
+          
+         
+        
+        
+    
+    }
+    
+}

@@ -1,0 +1,20 @@
+
+
+
+import java.util.Scanner;
+
+
+public class Lab10 {
+
+    public static void main(String[] args) {
+        double r=7.5 , a , v;
+      
+        a = (2*3.14159*r);
+        v = (3.14159*r*r);
+        System.out.println(a);
+        System.out.println(v);
+        
+
+    }
+    
+}

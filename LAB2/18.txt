@@ -1,0 +1,36 @@
+
+
+import java.util.Scanner;
+
+
+public class Lab 18{
+
+ 
+    public static void main(String[] args) {
+         int a, b, c, sum ;
+       
+       Scanner in = new Scanner(System.in);
+      
+       System.out.print("Enter a number,a : ");
+        a = in.nextInt();
+        
+         System.out.print("Enter a number,b : ");
+        b = in.nextInt();
+        
+         System.out.print("Enter a number,c : ");
+        c = in.nextInt();
+        
+        sum = a+b;
+        
+       if(sum == c){
+      System.out.println("The result is : True");
+       }
+       else{
+          System.out.println("The result is : False");  
+       }
+    
+}
+       
+    }
+    
+}

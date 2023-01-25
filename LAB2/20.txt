@@ -1,0 +1,38 @@
+
+
+
+import java.util.Scanner;
+
+public class Lab20 {
+
+
+    public static void main(String[] args) {
+           int a, b, x, y, m, n ;
+       
+       Scanner in = new Scanner(System.in);
+      
+       System.out.print("Enter a number,a : ");
+        a = in.nextInt();
+        
+         System.out.print("Enter a number,b : ");
+        b = in.nextInt();
+        
+        if((a > 25 && a < 75) || (b > 25 && b < 75)){
+        
+        x = a%10 ;
+        y = b%10 ;
+        m = a/10 ;
+        n = b/10 ;
+       
+       if(x==y || x==m || x==n || y==m || y==n || m==n){
+    System.out.println("True");
+       }
+        }
+       else {
+         System.out.println("False");  
+       }
+ 
+        
+    }
+    
+}
