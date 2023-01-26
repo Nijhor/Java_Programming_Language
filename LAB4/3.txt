@@ -1,0 +1,111 @@
+
+import java.util.Scanner;
+
+class Lab4{
+
+private int numerator;
+private int denominator;
+
+Fraction(){
+}
+
+Fraction (int numerator,int denominator){
+this.numerator = numerator;
+this.denominator = denominator;
+}
+
+void setnumator(int numerator){
+this.numerator = numerator;
+}
+
+int getnumerator(){
+return this.numerator;
+}
+
+void setdenominator(int numerator){
+this.denominator=numerator;
+}
+
+int getdenominator(){
+return this.denominator;
+}
+
+String ToString(){
+return this.numerator+"/"+this.denominator;
+}
+
+Fraction addFraction( Fraction B  ){
+    
+    Fraction I = new Fraction();
+    
+I.numerator=(this.numerator * B.denominator)+(B.numerator * this.denominator);
+
+I.denominator=B.denominator *this.denominator;
+    return I;
+}
+
+Fraction subtractFraction( Fraction B  ){
+    Fraction I= new Fraction();
+    
+I.numerator=(this.numerator * B.denominator)-(B.numerator * this.denominator);
+
+I.denominator=B.denominator *this.denominator;
+    return I;
+}
+
+Fraction multiplyFraction( Fraction B  ){
+    Fraction I= new Fraction();
+I.numerator=this.numerator *B.numerator ;
+I.denominator=B.denominator *this.denominator;
+    return I;
+}
+
+Fraction divideFraction( Fraction B  ){
+    Fraction I= new Fraction();
+    I.numerator=this.numerator *B.numerator ;
+I.denominator=B.denominator *this.denominator;
+I.numerator = this.numerator/I.denominator ;
+I.denominator = I.numerator/this.denominator ;
+    return I;
+}
+}
+public class Q3 {
+     public static void main(String[] args) {
+        
+    int k=0 ;
+    Fraction[] fractionArray = new Fraction[2];
+    Fraction[] result = new Fraction[4];
+    Scanner input=new Scanner(System.in);
+        for (int i = 0; i < 2; i++) {
+            System.out.print("Enter  numerator :  ");
+            int x=input.nextInt();
+            System.out.print("Enter denominator : ");
+            int y=input.nextInt();
+            
+            fractionArray[i]= new Fraction(x,y);
+            }
+        
+        System.out.print("the two fraction are :");
+        for (int i = 0; i < 2; i++) {
+            System.out.print(fractionArray[i].ToString()+" "); 
+        }
+        System.out.println();
+      
+       result[k]= fractionArray[0].addFraction(fractionArray[1]);
+      
+        System.out.println("Addition: "+result[k].ToString());
+        k++;
+        result[k]= fractionArray[0].subtractFraction(fractionArray[1]);
+      
+        System.out.println("Subtraction: "+result[k].ToString());
+        k++;
+        result[k]= fractionArray[0].multiplyFraction(fractionArray[1]);
+      
+        System.out.println("Multiplication: "+result[k].ToString());
+        k++;
+        result[k]= fractionArray[0].divideFraction(fractionArray[1]);
+      
+        System.out.println("Division: "+result[k].ToString());
+        k++;
+    } 
+}
