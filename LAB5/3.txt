@@ -1,0 +1,71 @@
+
+
+
+import java.util.Scanner;
+
+public class Lab3 {
+    public static void main(String[] args) {
+        
+  int[][] arr = new int[10][10];
+   int[][] brr = new int[10][10];
+    int[][] crr = new int[10][10];
+          int i, j, k, r1, c1, r2, c2, sum=0 ;
+          
+  Scanner in = new Scanner(System.in);
+  
+        System.out.print("Input the rows and columns of first matrix : ");
+  r1 = in.nextInt();
+  c1 = in.nextInt();
+        System.out.print("Input the rows and columns of second matrix : ");
+  r2 = in.nextInt();
+  c2 = in.nextInt();
+  
+  if(c1!=r2){
+      System.out.print("Mutiplication of Matrix is not possible.");
+      System.out.println("Column of first matrix and row of second matrix must be same.");
+  }
+  else
+      {    
+ 	        System.out.println("The First matrix is : ");
+  		for(i=0; i<r1; i++)
+    		{
+      		for(j=0; j<c1; j++){
+          	arr[i][j] = in.nextInt();
+                    System.out.println();
+    		}
+                }
+  
+  	       System.out.println("The Second matrix is :");
+  		for(i=0; i<r2; i++)
+    		{
+      		for(j=0; j<c2; j++){
+      		brr[i][j] = in.nextInt();
+                    System.out.println();
+    		}
+                }
+          for(i=0; i<r1; i++)
+          for(j=0; j<c2; j++)
+           crr[i][j] = 0 ;
+             for(i=0; i<r1; i++)  
+                 { 
+                   for(j=0; j<c2; j++)    
+                     {  
+                       sum = 0 ;
+                         for(k=0; k<c1; k++)
+                           sum = sum+arr[i][k]*brr[k][j];
+                           crr[i][j] = sum ;
+                     }
+                 }
+          System.out.println("The multiplication of two matrices is :");
+  for(i=0; i<r1; i++)
+     {
+          System.out.println();
+       for(j=0;j<c2;j++)
+         {
+             System.out.println(" "+crr[i][j]);
+            
+         }
+     }
+  }
+}
+}

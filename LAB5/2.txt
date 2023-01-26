@@ -1,0 +1,51 @@
+
+
+
+import java.util.Scanner;
+
+public class Lab2 {
+    public static void main(String[] args) {
+        int[] arr = new int[20];
+  int n, i, j=0, sml, sml2nd;
+  
+  Scanner in = new Scanner(System.in);
+        System.out.print("Input the size of array : ");
+       n = in.nextInt();
+    
+        System.out.println("Input the array (value must be <9999) :");
+       for(i=0;i<n;i++)
+            {
+	               System.out.print("element -"+i+ ": ");
+	      arr[i] = in.nextInt();
+	    }
+     sml = arr[0] ;
+  for(i=0;i<n;i++)
+  {
+      if(sml >arr[i])
+	  {
+           sml = arr[i];
+           j = i;
+      }
+  }
+
+        sml2nd =99999;
+  for(i=0;i<n;i++)
+  {
+     if(i==j)
+        {
+          i++;  
+		  i--;
+        }
+      else
+        {
+          if(sml2nd >arr[i])
+	     {
+               sml2nd =arr[i];
+             }
+        }
+  }
+
+        System.out.println("The Second smallest element in the array is : " +sml2nd);
+}
+    
+}
