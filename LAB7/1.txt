@@ -1,0 +1,102 @@
+
+
+import java.util.ArrayList;
+import java.util.Scanner;
+
+abstract class Shape{
+    private double area;
+    abstract void RectangleArea(double length,double breadth);
+    abstract void SquareArea(double  side);
+    abstract void CircleArea(double radius);
+
+    public double getArea() {
+        return area;
+    }
+
+    public void setArea(double area) {
+        this.area = area;
+    }
+    
+    public abstract String toString();
+
+    
+}
+
+
+class Area extends Shape{
+   String shapetype;
+  
+    public void RectangleArea(double length,double width){
+   
+       this.setArea(length*width);
+       this.shapetype="Rectangle Area ";
+      
+   }
+   public void SquareArea(double side){
+   
+       double area = side*side;
+       this.setArea(area);
+       this.shapetype="Square Area ";
+   }
+   public void CircleArea(double radius){
+   
+     double area=radius*radius*Math.PI;
+       this.setArea(area);
+           this.shapetype="Circle Area ";
+    }
+
+    @Override
+    public String toString() {
+        return this.shapetype+" :"+this.getArea();
+    }
+   
+   
+}
+
+public class ShapeTest {
+    public static void main(String[] args) {
+       Scanner in=new Scanner(System.in);
+       
+      ArrayList<Shape> ob =new ArrayList<Shape>();
+      System.out.println("Input number of objects ");
+        int arrayListNumber=in.nextInt();
+       
+       for(int i=0;i<arrayListNumber;i++){
+        System.out.println("Press 1 For calculating RectangleArea : ");
+        System.out.println("Press 2 For calculating SquareArea : ");
+        System.out.println("Press 3 For calculating CircleArea : ");
+        int choice=in.nextInt();
+        switch(choice){
+            case 1: 
+                System.out.println("Input length :");
+                double len=in.nextDouble();
+                System.out.println("Input breadth :");
+                double dre=in.nextDouble();
+                ob.add(new Area());
+                ob.get(i).RectangleArea(len,dre);
+                break;
+            case 2:
+                  System.out.println("Input side :");
+                double sid=in.nextDouble();
+                 ob.add(new Area());
+                ob.get(i).SquareArea(sid);
+                break;
+            case 3:
+                System.out.println("Input radius :");
+                double rad=in.nextDouble();
+                 ob.add(new Area());
+                ob.get(i).CircleArea(rad);
+                break;
+                
+        }
+            
+       
+        
+       }
+        for (int i = 0; i < arrayListNumber; i++) {
+            
+        
+        System.out.println(ob.get(i).toString());
+        }
+    }
+}

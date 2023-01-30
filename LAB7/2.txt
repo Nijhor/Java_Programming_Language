@@ -1,0 +1,64 @@
+
+
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Scanner;
+
+class Player implements Comparable<Player>{
+int score;
+String name;
+ Player(int a,String b){
+ score=a;
+ name=b;
+ 
+ }
+
+    @Override
+    public int compareTo(Player o) {
+         if (score> o.score)
+      return 1;
+    else if (score < o.score)
+      return -1;
+    else
+    {
+    if(name.compareTo(o.name)>0)
+        return 1;
+    else if(name.compareTo(o.name)<0)
+    return -1;
+    else 
+        return 0;
+    }
+    }
+
+public String toString(){
+
+return name+": "+score;
+
+}
+
+
+}
+
+
+public class CompareToDemo {
+    public static void main(String[] args) {
+        Scanner in=new Scanner(System.in);
+         Scanner in1=new Scanner(System.in);
+        System.out.println("Enter number of players");
+        int n=in.nextInt();
+        System.out.println("Input playyer score and name one by one");
+        ArrayList<Player> ob=new ArrayList<Player>();
+        
+        for (int i = 0; i < n; i++) {
+           ob.add(new Player(in.nextInt(),in1.nextLine()));
+            
+        }
+        Collections.sort(ob);
+        
+        System.out.println("Sorted List");
+        for (int i = 0; i < n; i++) {
+            System.out.println(ob.get(i).toString());
+        }
+    }
+}

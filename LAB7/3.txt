@@ -1,0 +1,59 @@
+
+
+
+import java.util.ArrayList;
+import java.util.Scanner;
+
+public class ArrayListDemo {
+
+    public static void main(String[] args) {
+        ArrayList<ArrayList<Integer>> x = new ArrayList<ArrayList<Integer>>();
+
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter number of list ");
+        int n = sc.nextInt();
+        for (int j = 0; j < n; j++) {
+
+            x.add(new ArrayList<Integer>());
+
+        }
+
+        for (int i = 0; i < n; i++) {
+            System.out.println("nember of elements ");
+            int size = sc.nextInt();
+            System.out.println("enter elements ");
+            for (int j = 0; j < size; j++) {
+
+                x.get(i).add(sc.nextInt());
+            }
+        }
+        String[] s = new String[n];
+        System.out.println("Query");
+        int q = sc.nextInt();
+        System.out.println(x);
+        System.out.println("search ");
+        for (int i = 0; i < q; i++) {
+            System.out.println(" row colum ");
+            int row, col;
+            row = sc.nextInt();
+            col = sc.nextInt();
+           row--;
+           col--;
+            if (row < n) {
+                int aaa = x.get(row) == null ? 0 : x.get(row).size();
+               // System.out.println(row+" size :"+aaa);
+                if (col < aaa) {
+                    System.out.println("Found :"+x.get(row).get(col));
+
+                } else {
+                    System.out.println("Error!");
+                }
+
+            } else {
+                System.out.println("Error!");
+            }
+
+        }
+    }
+
+}
