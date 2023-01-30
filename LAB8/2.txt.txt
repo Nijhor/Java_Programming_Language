@@ -1,0 +1,40 @@
+
+import java.util.Scanner;
+
+class MyException extends Exception{
+    MyException(String str){
+        super(str);
+    }
+    MyException(){
+        
+    }
+}
+public class Product {
+    public int productCheck(int weight ){
+        try{
+            if(weight<100){
+                MyException ex = new MyException("Product is Invalid");
+                throw ex;
+          
+            }else{
+                System.out.println("Wight is :"+weight);
+            }
+        }
+                catch(MyException e){
+                    e.printStackTrace();
+                    }
+       
+    
+      return weight;
+    
+}
+    public static void main(String[] args) {
+        Product ob1=new Product();
+        Scanner in= new Scanner(System.in);
+       
+            System.out.print("Please Input weight :");
+            int w=in.nextInt();
+           
+             ob1.productCheck(w);
+    }
+}

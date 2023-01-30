@@ -1,0 +1,84 @@
+
+
+import java.util.Scanner;
+
+class Calculator{
+    int num1;
+    int num2;
+    
+    Calculator(int num1, int num2){
+        this.num1 = num1;
+        this.num2 = num2;
+    }
+    
+    
+    public int Add(){
+        if(this.num1<0 || this.num2<0 ){
+            throw new ArithmeticException("Numbers should not be negative!");
+        }
+            
+       return this.num1 + this.num2;
+    }
+  public int subtract(){
+        if(num1<0  || num2<0 ){
+            throw new ArithmeticException("Numbers should not be negative!");
+        }
+            
+       return num1 - num2;
+    }
+  public  int multiply(){
+        if(num1==0  || num2==0 ){
+            throw new ArithmeticException("Numbers should not be zero!");
+        }
+            
+       return num1 * num2;
+    }
+  public double Division(){
+        if( num2==0 ||num2==0 ){
+            throw new ArithmeticException("Numbers should not be zero!");
+        }
+            double div=num1/num2;
+       return div;
+    }
+
+    
+    
+}
+
+
+public class Lab8 {
+public static void main(String[] args) {
+        
+    
+    Scanner in = new Scanner(System.in);
+   boolean c =false;
+    
+   do{
+    try{
+        
+    System.out.println("Enter two integer number");
+     int n1 = in.nextInt();
+     int n2 = in.nextInt();
+     try{
+     Calculator obj1 = new Calculator(n1,n2);
+     Calculator obj2 = new Calculator(n1,n2);
+     Calculator obj3 = new Calculator(n1,n2);
+     Calculator obj4 = new Calculator(n1,n2);
+      System.out.println("Addition :"+obj1.Add());
+      System.out.println("Subtract :"+obj2.subtract());
+      System.out.println("Multiplication :"+obj3.multiply());
+      System.out.println("Division :"+obj4.Division());
+     }catch(ArithmeticException ex){
+         System.out.println(ex);
+     }
+       c=true;
+    }
+  
+  catch(NumberFormatException e){
+System.out.println("Exception: Wrong input.Please enter integer numbers!"+e);
+  in.nextLine();
+  }
+   }while(c!=true);
+  
+}   
+}
