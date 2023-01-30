@@ -1,0 +1,163 @@
+package lab6;
+import java.util.Random;
+import java.util.Scanner;
+
+class Account {
+   private  int id;
+   private double balance;
+   private double annualInterestRate ; 
+    Account(){
+    
+    }
+   
+    Account(int id,double balance,double annualInterestRate){
+    this.id=id;
+    this.balance=balance;
+    this.annualInterestRate=annualInterestRate/100;
+    }
+    
+    void setid(int id){
+    this.id=id;
+    }
+    
+    void setbalance(double balance){
+    this.balance=balance;
+    }
+    
+    void setannualInterestRate(double setannualInterestRate){
+    this.annualInterestRate=setannualInterestRate/100;
+    }
+    
+    int getid(){
+    return this.id;
+    }
+    
+    double getbalance(){
+    return  this.balance;
+    }
+    
+    double getannualInterestRate(){
+    return this.annualInterestRate ;
+    }
+  
+    double getMonthlyInterestRate(){
+    return (this.annualInterestRate/12);
+    }
+   
+    double getMonthlyInterestAmount(){
+    return (this.balance*this.getMonthlyInterestRate());
+    }
+    
+    void withdraw(double balance){
+    this.balance-=balance;
+    }
+    
+    void deposit(double balance){
+    this.balance +=balance;
+    }
+    
+    public String toString(){
+    return "\nAccount info:\n"+"Id: "+this.id+"\nBalance :"+this.balance;
+    }
+}
+ 
+class CheckingAccount extends Account{
+double overdraftlimit;
+
+CheckingAccount(int id,double balance,double annualInterestRate,double overdraftlimit){
+super(id,balance,annualInterestRate);
+this.overdraftlimit=overdraftlimit;
+}
+
+double getOverdraftLimit(){
+return overdraftlimit;
+}
+}
+ 
+class SavingsAccount extends Account{
+long cradnumber;
+ 
+ 
+   SavingsAccount(int id,double balance,double annualInterestRate){
+   super(id,balance,annualInterestRate);
+
+   Random rand= new Random();
+   long z=1;
+   for (int i = 0; i < 15; i++) {
+          z= z*10 + (rand.nextInt(9)+1);
+    }
+      this.cradnumber=z;   
+   }
+ 
+ double getCreditbalance(){
+ return this.getbalance()*3;
+ }
+ 
+ long getCreditcardnumber(){
+ return this.cradnumber;
+ }
+ 
+ public String toString(){
+ return super.toString()+"\n"+"Credit Balance :"+getCreditbalance();
+ }
+ }
+ 
+class AccountDemo{
+    public static void main(String[] args) {
+        Account[] acc =new Account[4];
+        int n;
+        Scanner input= new Scanner(System.in);
+        
+        for(int i=0;i<4;i++){
+            System.out.println("Press (1) for Checking Account\n" +
+                                  "Press (2) for Savings Account");
+            n=input.nextInt();
+            if(n==1){
+                System.out.println("Enter account id:");
+                int id=input.nextInt();
+                System.out.println("Enter Balance :");
+                double balance =input.nextDouble();
+                System.out.println("Enter Annual interest rate :");
+                double inst=input.nextDouble();
+                System.out.println("Enter overdraftlimit :");
+                double draft=input.nextDouble();
+                
+            acc[i]=new CheckingAccount(id,balance,inst,draft);
+            acc[i].deposit(2000);
+            acc[i].withdraw(1000);
+            }
+            if(n==2){
+            System.out.println("Enter account id:");
+                int id=input.nextInt();
+                System.out.println("Enter Balance :");
+                double balance=input.nextDouble();
+                System.out.println("Enter Annual interest rate :");
+                double inst=input.nextDouble();
+                
+                
+            acc[i]=new SavingsAccount(id,balance,inst);
+              acc[i].deposit(2000);
+            acc[i].withdraw(1000);
+            }
+    }
+    for (int i = 0; i < 4; i++) {
+          if(acc[i] instanceof SavingsAccount){
+                System.out.println("This is an Savings account .");
+                System.out.println("Account ID :"+((SavingsAccount)acc[i]).getid());
+                System.out.println("Current Balance :"+((SavingsAccount)acc[i]).getbalance());
+                System.out.println("Annual Interest rate :"+((SavingsAccount)acc[i]).getannualInterestRate());
+                System.out.println("Monthly Interest Amount:"+((SavingsAccount)acc[i]).getMonthlyInterestRate());
+                System.out.println("Credit Card Number:"+((SavingsAccount)acc[i]).getCreditcardnumber());
+                System.out.println("Credit Balance:"+((SavingsAccount)acc[i]).getCreditbalance());
+                            }         
+             if(acc[i] instanceof CheckingAccount){
+                System.out.println("This is an Checking Account.");
+                System.out.println("Account ID :"+((CheckingAccount)acc[i]).getid());
+                System.out.println("Current Balance :"+((CheckingAccount)acc[i]).getbalance());
+                System.out.println("Annual Interest rate :"+((CheckingAccount)acc[i]).getannualInterestRate());
+                System.out.println("Monthly Interest Amount:"+((CheckingAccount)acc[i]).getMonthlyInterestRate());
+                System.out.println("Overdraft Limit:"+((CheckingAccount)acc[i]).getOverdraftLimit());
+             }
+        }
+   }
+}
